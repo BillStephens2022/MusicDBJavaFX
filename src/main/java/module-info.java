@@ -7,5 +7,6 @@ module com.billstephens.musicdbjavafx {
     requires java.sql;
 
     opens com.billstephens.musicdbjavafx to javafx.fxml;
+    opens com.billstephens.musicdbjavafx.model to javafx.base;
     exports com.billstephens.musicdbjavafx;
 }
