@@ -202,6 +202,14 @@ public class Datasource {
 
             List<Artist> artists = new ArrayList<>();
             while (results.next()) {
+                // this call for the thread to sleep isn't necessary, this is just to simulate
+                // a delay as if it were a large dataset so we can see the progress bar in the
+                // GUI fill out as the process completes.
+                try {
+                    Thread.sleep(20);
+                } catch(InterruptedException e) {
+                    System.out.println("Interrupted: " + e.getMessage());
+                }
                 Artist artist = new Artist();
                 artist.setId(results.getInt(INDEX_ARTIST_ID));
                 artist.setName(results.getString(INDEX_ARTIST_NAME));
